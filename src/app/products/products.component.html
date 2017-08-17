@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col l6" id="search">
+    <h1 style="color:white; "> Products</h1>
+    <form class="col s12" #form="ngForm" (ngSubmit)="addProduct(form.value)">
+      <div class="row">
+        <div class="input-field col s12">
+          <p style="color:white;font-size:1.2em;padding:1em;">
+            Add an Item and its description, watch it transition to the dashboard list cool right?! <br> <br> <br>
+            Tempor nostrud Lorem aliquip excepteur non laborum pariatur elit. Et dolore quis magna ex elit fugiat sunt nisi sint excepteur id. Cillum veniam amet pariatur occaecat in. Deserunt pariatur consequat cillum in ea.
+          </p>
+          <input placeholder="product name" class="validate" type="text" name="title" [(ngModel)]="title" >
+          <textarea placeholder="product description" class="materialize-textarea" name="description"[(ngModel)]="description"></textarea>
+        </div>
+      </div>
+      <button id="btn" type="submit">Add Product</button>
+    </form>
+  </div>
+  <div class="col l6" id="search">
+    <div id="products-list">
+        <div [@productsAnim] = 'state' class="card-panel" *ngFor="let product of products; let i = index">
+          <b>Product</b>
+          <p>{{product.title}}</p>
+          <b>Description</b>
+          <p>{{product.description}}</p>
+        </div>
+    </div>
+  </div>
+</div>
